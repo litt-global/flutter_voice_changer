@@ -21,7 +21,10 @@
         }
         self.player = [[FMPlayer alloc] initWithPath:path option:self.audioOptions[type.intValue]];
         [self.player play];
-        
+    } else if ([@"stop" isEqualToString:call.method]) {
+        if (self.player) {
+            [self.player stop];
+        }
     } else {
         result(FlutterMethodNotImplemented);
     }
